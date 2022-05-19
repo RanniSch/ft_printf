@@ -6,11 +6,12 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:20:44 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/19 15:38:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/19 20:32:20 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+//#include "printf.h"
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -58,25 +59,41 @@ int ft_printf(char *s, char *name, char chr, int age)
     int i;
 
     i = 0;
-    while(s[i])
-        if (s[i] != '%')
-            ft_putchar_fd(s[i], 20);
-        if (s[i] == 's' && s[i] - 1 == '%')
-            ft_putstr_fd(name, 5);
-        if (s[i] == 'c' && s[i] - 1 == '%')
+    while(s[i] != '\0')
+    {
+        if (s[i] == 's' && s[i - 1] == '%')
+        {
+            ft_putstr_fd(name, 1);
+            i++;
+            continue;
+        }        
+        if (s[i] == 'c' && s[i - 1] == '%')
+        {
             ft_putchar_fd(chr, 1);
-        if (s[i] == 'd' && s[i] - 1 == '%')
-            ft_putnbr_fd(age, 2);
-    i++;
+            i++;
+            continue;
+        }            
+        if (s[i] == 'd' && s[i - 1] == '%')
+        {
+            ft_putnbr_fd(age, 1);
+            i++;
+            continue;
+        }            
+        if (s[i] != '%')
+            ft_putchar_fd(s[i], 1);
+        i++;
+    }
     return(0);
 }
+
+
 
 int main(void)
 {
     char    *name;
     char    *s;
-    char    str[30] = "Ich bin %s mit %c und %d.";
-    char    n[5] = "Ranja";
+    char    str[40] = "Ich bin %s mit %c und bin %d Jahre alt.\n";
+    char    n[6] = "Ranja";
     char    chr;
     int     age;
 
