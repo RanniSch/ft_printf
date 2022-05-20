@@ -6,23 +6,14 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:20:44 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/20 14:20:36 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/20 22:55:36 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "printf.h"
 #include <stdarg.h>
 #include <unistd.h>
-
-/*size_t	ft_strlen(const char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*(s + count) != '\0')
-		count++;
-	return (count);
-}*/
+#include <stdio.h>  //test mit printf, muss dann raus
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -111,11 +102,71 @@ void	ft_putstr_fd(char *s, int fd)
 }*/
 
 /** Hexadecimal converter und print **/
+void ft_hexadecimal_big(long int hd)
+{
+    long int    quo;
+    int         i;
+    int         j;
+    int         temp;
+    char        hexadecNum[100];
+
+    i = 1;
+    while (quo != 0)
+    {
+        temp = hd % 16;
+        if (temp < 10)
+            temp = temp + 48;
+        else
+            temp = temp + 55;        
+        hexadecNum[i] = temp;
+        quo = quo / 16;
+        i++;
+    }
+    printf("\n%d\n", i);
+    j = i - 1;
+    printf("\n%d\n", j);
+    while (j > 0)       // BEDINGUNG FUNKTIONIERT NICHT
+    {
+        printf("\n no bug \n");
+        ft_putchar_fd(hexadecNum[j], 1);
+        j--;
+    }
+}
+
+void ft_hexadecimal_small(long int hds)
+{
+    long int    quo;
+    int         i;
+    int         j;
+    int         temp;
+    char        hexadecNum[100];
+
+    i = 1;
+    while (quo != 0)
+    {
+        temp = hds % 16;
+        if (temp < 10)
+            temp = temp + 48;
+        else
+            temp = temp + 55 +32;
+        hexadecNum[i] = temp;
+        quo = quo / 16;
+        i++;
+    }
+    j = i - 1;
+    while (j > 0)
+    {
+        ft_putchar_fd(hexadecNum[j], 1);
+        j--;
+    }
+}
 
 int	ft_printf(const char *format, ...)
 {
     int				j;
 	unsigned int	i;
+    long int        hd;
+    long int        hds;
 	char			*s;
 	char			c;
 	va_list			args;
@@ -145,6 +196,33 @@ int	ft_printf(const char *format, ...)
 			j++;
 			continue ;
 		}
+        if (format[j] == 'u' && format[j - 1] == '%')
+		{
+			i = va_arg(args, int);
+            ft_putnbr_fd(i, 1);
+			j++;
+			continue ;            
+		}
+        if (format[j] == 'X' && format[j - 1] == '%')
+		{
+			hd = va_arg(args, int);
+            ft_hexadecimal_big(hd);
+			j++;
+			continue ;
+		}
+        if (format[j] == 'x' && format[j - 1] == '%')
+		{
+			hds = va_arg(args, int);
+            ft_hexadecimal_small(hds);
+			j++;
+			continue ;
+		}
+        if (format[j] == '%' && format[j - 1] == '%')
+		{
+            ft_putchar_fd('%', 1);
+			j++;
+			continue ;
+		}
 		if (format[j] != '%')
 			ft_putchar_fd(format[j], 1);
 		j++;
@@ -155,16 +233,22 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	char	*name;
-	char	n[6] = "Ranja";
-	char	chr;
+	//char	*name;
+	//char	n[6] = "Ranja";
+	//char	chr;
 	int		age;
     int     base;
+    int     pos;
+    long int     hd_big;
+    long int     hd_small;
 
-	name = &n[0];
-	chr = 'a';
-	age = 34;
-    base = 012;
-	ft_printf("Ich bin %s mit %c und bin %d Jahre alt %i.\n", name, chr, age, base);     // Erste Eintrag in meiner Liste ist der komplette String, zweiter Eintrag ist %s, dritter Eintrag %c und vierter %d.
+	//name = &n[0];
+	//chr = 'a';
+	age = -34;
+    base = 12;
+    pos = 10;
+    hd_big = 590;
+    hd_small = 590;
+	ft_printf("Ich bin %X mit %x und %u bin %d Jahre %% alt %i.\n", hd_big, hd_small, pos, age, base);     // Erste Eintrag in meiner Liste ist der komplette String, zweiter Eintrag ist %s, dritter Eintrag %c und vierter %d.
 	return (0);
 }
