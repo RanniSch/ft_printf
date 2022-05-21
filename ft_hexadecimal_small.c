@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hexadecimal_small.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/21 21:58:28 by rschlott          #+#    #+#             */
+/*   Updated: 2022/05/21 22:27:40 by rschlott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "printf.h"
+/* converts int into (small letters)
+    hexa -> 0123456789abcdef */
+
+void	ft_hexadecimal_small(unsigned long hds, int ptr_yes)
+{
+	unsigned long	quo;
+	int				i;
+	int				temp;
+	char			hexa_num[100];
+	char			result[100];
+
+	if (ptr_yes == 1)
+		ft_putstr_fd("0x", 1);
+	i = 1;
+	quo = hds;
+	while (quo != 0)
+	{
+		temp = quo % 16;
+		if (temp < 10)
+			temp = temp + 48;
+		else
+			temp = temp + 55 + 32;
+		hexa_num[i] = temp;
+		quo = quo / 16;
+		i++;
+	}
+	ft_print_hexa(&hexa_num[i], i);
+}
