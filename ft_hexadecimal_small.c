@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 21:58:28 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 11:48:50 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 19:39:17 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 /* converts int into (small letters)
     hexa -> 0123456789abcdef */
 
-void	ft_hexadecimal_small(unsigned long hds, int ptr_yes)
+int	ft_hexadecimal_small(unsigned long hds, int ptr_yes)
 {
 	unsigned long	quo;
 	int				i;
 	int				temp;
+	int				length;
 	char			hexa_num[100];
 
 	if (ptr_yes == 1)
@@ -37,5 +38,6 @@ void	ft_hexadecimal_small(unsigned long hds, int ptr_yes)
 		i++;
 	}
 	hexa_num[i] = '\0';
-	ft_print_hexa(&hexa_num[i], i);
+	length = ft_print_hexa(&hexa_num[i], i);
+	return (length);
 }

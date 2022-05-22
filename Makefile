@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 11:02:29 by rschlott          #+#    #+#              #
-#    Updated: 2022/05/22 11:47:08 by rschlott         ###   ########.fr        #
+#    Updated: 2022/05/22 21:31:09 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,12 @@ STD		= 	ft_format_check.c	\
 			ft_putchar_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_putstr_fd.c	\
+			ft_int_length.c	\
+			ft_print_char.c	\
+			ft_print_int.c	\
+			ft_print_string.c	\
+			ft_strlen.c	\
+			ft_print_unsigned_int.c	\
 
 OBJ		= 	${STD:.c=.o}
 

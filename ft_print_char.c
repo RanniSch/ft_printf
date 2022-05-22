@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 22:07:22 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 19:37:37 by rschlott         ###   ########.fr       */
+/*   Created: 2022/05/22 18:33:11 by rschlott          #+#    #+#             */
+/*   Updated: 2022/05/22 19:50:04 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/* prints hexa (reverse printing) for %x, %X and %p. 
-	i is needed to stop the reverse printing in time. */
 
-int	ft_print_hexa(const char *hexa_num, int i)
+int ft_print_char(char c)
 {
-    char    output;
-    int     length;
-
-    length = 0;
-    i--;
-    hexa_num--;
-    while (i > 0)
-	{
-        output = *hexa_num;
-        ft_putchar_fd(output, 1);
-		hexa_num--;
-        i--;
-        length++;
-	}
-    return (length);
+    ft_putchar_fd(c, 1);
+    return (1);
 }

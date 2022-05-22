@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:20:44 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 11:10:00 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:50:30 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,28 @@ int	ft_printf(const char *format, ...)
 {
 	va_list args;
     int j;
+    int length;
     
     va_start(args, format);
 	j = 0;
+    length = 0;
 	while (format[j])
 	{
 		if (format[j] == '%')
 		{
 			j++;
-			ft_format_check(&format[j], args);
+			length += ft_format_check(&format[j], args);
 		}
 		else
-			ft_putchar_fd(format[j], 1);
+        {
+            ft_putchar_fd(format[j], 1);
+            length++;
+        }
+			
 		j++;
 	}
 	va_end(args);
-	return (0);
+	return (length);
 }
 
 /*int	main(void)

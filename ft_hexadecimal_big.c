@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 21:54:46 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 11:48:38 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 19:38:35 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 /* converts int into 
     hexa -> 0123456789ABCDEF */
 
-void	ft_hexadecimal_big(unsigned int hd)
+int	ft_hexadecimal_big(unsigned int hd)
 {
 	long int	quo;
 	int			i;
 	int			temp;
+	int			length;
 	char		hexa_num[100];
 
 	i = 1;
@@ -35,5 +36,6 @@ void	ft_hexadecimal_big(unsigned int hd)
 		i++;
 	}
 	hexa_num[i] = '\0';
-	ft_print_hexa(&hexa_num[i], i);
+	length = ft_print_hexa(&hexa_num[i], i);
+	return (length);
 }
