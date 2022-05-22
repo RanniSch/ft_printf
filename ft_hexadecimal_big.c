@@ -6,11 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 21:54:46 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/21 22:28:48 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 10:42:18 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 /* converts int into 
     hexa -> 0123456789ABCDEF */
 
@@ -20,7 +20,6 @@ void	ft_hexadecimal_big(unsigned int hd)
 	int			i;
 	int			temp;
 	char		hexa_num[100];
-	char		result[100];
 
 	i = 1;
 	quo = hd;
@@ -35,5 +34,6 @@ void	ft_hexadecimal_big(unsigned int hd)
 		quo = quo / 16;
 		i++;
 	}
+	hexa_num[i] = '\0';
 	ft_print_hexa(&hexa_num[i], i);
 }

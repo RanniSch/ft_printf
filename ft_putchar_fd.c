@@ -6,11 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 11:32:34 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/19 13:16:44 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 08:49:51 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

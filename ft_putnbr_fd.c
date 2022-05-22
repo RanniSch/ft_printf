@@ -6,11 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:00:03 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/19 13:16:51 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 08:50:19 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 /* A function that displays the number entered as a parameter. The function
 has to be able to display all possible values within an int type variable. */
 

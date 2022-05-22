@@ -6,11 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:20:44 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/21 22:24:14 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/22 10:44:28 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 /*int ft_check_error(const char *format, ...)
 {
     va_list     args;
@@ -21,9 +21,13 @@
     va_end(args);
     return(0);
 }*/
+
 int	ft_printf(const char *format, ...)
 {
-	va_start(args, format);
+	va_list args;
+    int j;
+    
+    va_start(args, format);
 	j = 0;
 	while (format[j])
 	{
@@ -42,7 +46,17 @@ int	ft_printf(const char *format, ...)
 
 /*int	main(void)
 {
-	char	*name;
+    long int     hd_big;
+    long int     hd_small;
+    char	*name;
+	char	n[6] = "Ranja";
+
+    name = &n[0];
+    hd_big = 590;
+    hd_small = 590;
+	ft_printf("Hexa gr. %X und kl. %x. Position %p \n", hd_big, hd_small, name);
+
+    char	*name;
 	char	n[6] = "Ranja";
 	char	chr;
 	int		age;
@@ -60,8 +74,6 @@ int	ft_printf(const char *format, ...)
     hd_small = 590;
 	ft_printf("Ich heiße %s mit %c gespeichert unter: %p. Hexa gr. %X und kl.
 			%x. Positiv: %u, Alter %d, %% und %i.\n", name, chr, name, hd_big,
-			hd_small, pos, age, base);    
-		// Erste Eintrag in meiner Liste ist der komplette String,
-		zweiter Eintrag ist %s, dritter Eintrag %c und vierter %d.
+			hd_small, pos, age, base);  
 	return (0);
 }*/
