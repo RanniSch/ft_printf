@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_length.c                                    :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 18:56:04 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 15:00:26 by rschlott         ###   ########.fr       */
+/*   Created: 2022/05/23 23:02:26 by rschlott          #+#    #+#             */
+/*   Updated: 2022/05/23 23:20:01 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_int_length(long long n)   // long int: so that neg unsigned int length gets counted correctly! long long so that is also works for signed int!
+int	ft_print_pointer(const char *hexa_num, int i)
 {
-    int length;
+    char    output;
+    int     length;
 
     length = 0;
-    if (n == 0)
-        length = 1;
-    if (n < 0)
-    {
+    i--;
+    /*if (i == 0)
+    	length = 1;*/
+    hexa_num--;
+    ft_putstr_fd("0x", 1);
+    while (i > 0)
+	{
+        output = *hexa_num;
+        ft_putchar_fd(output, 1);
+		hexa_num--;
+        i--;
         length++;
-        n = n * (-1);
-    }
-    while (n > 0)
-    {
-        n = n / 10;
-        length++;
-    }
-    return (length);
+	}
+    return (2 + length);
 }

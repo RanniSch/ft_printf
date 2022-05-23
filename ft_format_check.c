@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:01:27 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 14:55:43 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/23 23:22:16 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 int	ft_format_check(const char *format, va_list args)
 {
-	unsigned long	hex_address;
-
 	if (*format == 's')
 		return (ft_print_string(va_arg(args, char *)));
 	if (*format == 'c')
@@ -30,12 +28,9 @@ int	ft_format_check(const char *format, va_list args)
 	if (*format == 'X')
 		return (ft_hexadecimal_big(va_arg(args, unsigned int)));
 	if (*format == 'x')
-		return (ft_hexadecimal_small(va_arg(args, unsigned int), 0));
+		return (ft_hexadecimal_small(va_arg(args, unsigned int)));
 	if (*format == 'p')
-	{
-		hex_address = (unsigned long)va_arg(args, void *);
-		return (ft_hexadecimal_small(hex_address, 1));
-	}
+		return (ft_hexadecimal_pointer(va_arg(args, void *)));
 	if (*format == '%')
 	{
 		ft_putchar_fd('%', 1);

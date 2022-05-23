@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:07:22 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 19:37:37 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/23 22:56:14 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_print_hexa(const char *hexa_num, int i)
 
     length = 0;
     i--;
+    /*if (i == 0)
+    	length = 1;*/
     hexa_num--;
     while (i > 0)
 	{
