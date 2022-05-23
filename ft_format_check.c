@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:01:27 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 21:30:29 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/23 14:55:43 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_format_check(const char *format, va_list args)
 	if (*format == 'c')
 		return (ft_print_char(va_arg(args, int)));
 	if (*format == 'd' || *format == 'i')
-		return (ft_print_int(va_arg(args, int)));
+		return (ft_print_int((int)va_arg(args, int)));
 	if (*format == 'u')
 		return (ft_print_unsigned_int(va_arg(args, unsigned int)));
 	if (*format == 'X')

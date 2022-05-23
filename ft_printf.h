@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:00:16 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 21:36:45 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/23 14:55:58 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int 	ft_print_hexa(const char *hexa_num, int i);
 void 	ft_putchar_fd(char c, int fd);
 void 	ft_putstr_fd(char *s, int fd);
 void 	ft_putnbr_fd(int n, int fd);
-int     ft_int_length(int n);
+int     ft_int_length(long long n);
 int     ft_print_char(char c);
 int     ft_print_int(int n);
 int     ft_print_string(char *s);

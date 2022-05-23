@@ -6,11 +6,12 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 19:28:55 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/22 21:37:54 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/23 14:55:04 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int ft_print_int(int n)
 {
