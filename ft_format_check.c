@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:01:27 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 23:22:16 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:38:59 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ int	ft_format_check(const char *format, va_list args)
 	if (*format == 'u')
 		return (ft_print_unsigned_int(va_arg(args, unsigned int)));
 	if (*format == 'X')
-		return (ft_hexadecimal_big(va_arg(args, unsigned int)));
+		return (ft_hexadecimal(va_arg(args, unsigned int), 'X'));
 	if (*format == 'x')
-		return (ft_hexadecimal_small(va_arg(args, unsigned int)));
+		return (ft_hexadecimal(va_arg(args, unsigned int), 'x'));
 	if (*format == 'p')
-		return (ft_hexadecimal_pointer(va_arg(args, void *)));
+		return (ft_ptrtoint(va_arg(args, void *)));
 	if (*format == '%')
 	{
 		ft_putchar_fd('%', 1);
 		return (1);
-	}		
+	}
 	return (0);
 }

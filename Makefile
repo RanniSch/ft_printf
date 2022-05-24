@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 11:02:29 by rschlott          #+#    #+#              #
-#    Updated: 2022/05/23 23:18:56 by rschlott         ###   ########.fr        #
+#    Updated: 2022/05/24 17:19:03 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ NAME	= 	libftprintf.a
 INCLUDE	= 	ft_printf.h
 
 STD		= 	ft_format_check.c	\
-			ft_hexadecimal_big.c	\
-			ft_hexadecimal_small.c	\
+			ft_hexadecimal.c	\
 			ft_print_hexa.c	\
 			ft_printf.c	\
 			ft_putchar_fd.c	\
@@ -35,6 +34,7 @@ STD		= 	ft_format_check.c	\
 			ft_print_unsigned_int.c	\
 			ft_print_pointer.c	\
 			ft_hexadecimal_pointer.c	\
+			ft_ptrtoint.c	\
 
 OBJ		= 	${STD:.c=.o}
 

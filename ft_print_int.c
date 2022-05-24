@@ -6,23 +6,22 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 19:28:55 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 14:55:04 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:39:29 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int ft_print_int(int n)
+int	ft_print_int(int n)
 {
-    int length;
+	int	length;
 
-    if (n == -2147483648)
+	if (n == -2147483648)
 	{
 		ft_putnbr_fd(n, 1);
 		return (11);
 	}
-    length = ft_int_length(n);
-    ft_putnbr_fd(n, 1);
-    return (length);
+	length = ft_int_length(n);
+	ft_putnbr_fd(n, 1);
+	return (length);
 }

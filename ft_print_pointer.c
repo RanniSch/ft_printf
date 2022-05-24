@@ -6,30 +6,16 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 23:02:26 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 23:20:01 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:39:35 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_pointer(const char *hexa_num, int i)
+void	ft_print_pointer(unsigned long hex_pt)
 {
-    char    output;
-    int     length;
-
-    length = 0;
-    i--;
-    /*if (i == 0)
-    	length = 1;*/
-    hexa_num--;
-    ft_putstr_fd("0x", 1);
-    while (i > 0)
-	{
-        output = *hexa_num;
-        ft_putchar_fd(output, 1);
-		hexa_num--;
-        i--;
-        length++;
-	}
-    return (2 + length);
+	if (hex_pt < 10)
+		ft_putchar_fd(hex_pt + '0', 1);
+	else
+		ft_putchar_fd('a' + hex_pt - 10, 1);
 }

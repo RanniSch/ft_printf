@@ -6,31 +6,20 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:07:22 by rschlott          #+#    #+#             */
-/*   Updated: 2022/05/23 22:56:14 by rschlott         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:39:16 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 /* prints hexa (reverse printing) for %x, %X and %p. 
-	i is needed to stop the reverse printing in time. */
+	Cannot be greater than 16 (f) as we have base 16. */
 
-int	ft_print_hexa(const char *hexa_num, int i)
+void	ft_print_hexa(unsigned int hd, char c)
 {
-    char    output;
-    int     length;
-
-    length = 0;
-    i--;
-    /*if (i == 0)
-    	length = 1;*/
-    hexa_num--;
-    while (i > 0)
-	{
-        output = *hexa_num;
-        ft_putchar_fd(output, 1);
-		hexa_num--;
-        i--;
-        length++;
-	}
-    return (length);
+	if (hd < 10)
+		ft_putchar_fd(hd + '0', 1);
+	else if (c == 'x')
+		ft_putchar_fd('a' + hd - 10, 1);
+	else if (c == 'X')
+		ft_putchar_fd('A' + hd - 10, 1);
 }
