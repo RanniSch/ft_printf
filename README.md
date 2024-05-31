@@ -1,6 +1,6 @@
 # ft_printf
 The goal of this project is to recode printf() with a variable number of arguments.<br> <br>
-For example, the function can handle the following conversions: cspdiuxX% <br> <br>
+For example, the function can handle the following conversions: ```cspdiuxX%``` <br> <br>
 For each conversion required by the subject, there's a function that converts the argument and returns the numer of bytes writed: <br>
 • **%c** print a single character.<br>
 • **%s** print a string of characters.<br>
@@ -12,7 +12,8 @@ For each conversion required by the subject, there's a function that converts th
 • **%%** print a percent sign.<br>
 
 ## How to run the code
-Enter the repository with ``` cd ``` and add a "main.c" with ``` touch main.c ```. For example copy paste the following code into main:
+Enter the repository with ``` cd ``` and add a "main.c" with ``` touch main.c ```. <br>
+For example copy paste the following code into main:
 ```
 #include "ft_printf.h"
 
@@ -46,9 +47,9 @@ int	main(void)
 }
 ```
 Run ```make``` (to run the Makefile that will compile the source code and create the library). <br>
-You should see a libftprintf.a file and some object files (.o). <br>
-Clean up (removing the .o files), call ```make clean```
+You should now see a libftprintf.a file and some object files (.o). <br>
+To clean up (removing the .o files), call ```make clean```. <br>
 
-Now compile your .c files with gcc using ```gcc main.c libftprintf.a```
+Compile your .c files with gcc using ```gcc main.c libftprintf.a```. <br>
 You need to include the libftprintf.a to tell the file which library it is using.<br>
 Now you can run the code using ```./a.out```
