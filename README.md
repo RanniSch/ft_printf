@@ -51,7 +51,7 @@ You should now see a **libftprintf.a** file and some object files (.o). <br>
 To clean up (removing the .o files), call ```make clean```. <br>
 
 Compile your .c files with gcc using ```gcc main.c libftprintf.a```.
-You need to include the libftprintf.a to tell the file which library it is using.<br> <br>
+You need to include the **libftprintf.a** to tell the file which library it is using.<br> <br>
 Now you can run the code using ```./a.out```. <br> <br>
 ![ft_printf-01](https://github.com/RanniSch/ft_printf/assets/104382315/30190c94-434c-4c8e-a467-028b73b9d411)
 
