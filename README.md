@@ -47,7 +47,7 @@ int	main(void)
 }
 ```
 Run ```make``` (to run the Makefile that will compile the source code and create the library). <br>
-You should now see a libftprintf.a file and some object files (.o). <br>
+You should now see a **libftprintf.a** file and some object files (.o). <br>
 To clean up (removing the .o files), call ```make clean```. <br>
 
 Compile your .c files with gcc using ```gcc main.c libftprintf.a```.
